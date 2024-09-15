@@ -8,7 +8,7 @@
 
 ## 快速上手
 
-#### 1. 创建一个 ArenaPro 项目，然后打开终端安装 dao3-aui
+### 1. 创建一个 ArenaPro 项目，然后打开终端安装 dao3-aui
 
 ```bash
 npm install --save dao3-aui
