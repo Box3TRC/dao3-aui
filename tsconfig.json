@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "target": "ESNext",
+        "module": "NodeNext",
+        // "module": "ES6",
+        "outDir": "dist/",
+        "moduleResolution": "NodeNext",
+        "paths": {
+            "aui": [
+                "./src/index"
+            ]
+        },
+        "noImplicitAny": false,
+        "jsxFactory": "AUIApp.h",
+        "jsxFragmentFactory": "AUIApp.frag",
+        "jsx": "react"
+    },
+    "include": [
+        "./src/**/*",
+        "./types/**/*",
+        "./*.tsx"
+    ]
+}

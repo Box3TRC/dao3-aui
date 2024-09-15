@@ -1,0 +1,20 @@
+{
+  "name": "dao3-aui",
+  "version": "0.0.5-alpha",
+  "description": "React-like UI programming in Dao3.fun(Arena)",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "dependencies": {
+    "preact": "^10.24.0"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^21.1.7",
+    "esbuild": "^0.23.1",
+    "htm": "^3.1.1"
+  },
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --minify --outfile=dist/index.js --external:preact --platform=browser --format=cjs --legal-comments=none"
+  },"publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}
