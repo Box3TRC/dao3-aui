@@ -74,11 +74,11 @@ import "./_client_bundle.js"
 ```
 点击运行按钮。你会发现左上角有一个按钮：
 
-![1726421489338](README/1726421489338.png)
+![1726421489338](https://ghproxy.cc/https://raw.githubusercontent.com/Box3TRC/dao3-aui/master/README/1726421489338.png)
 
 点击它，数字会变化：
 
-![1726421512496](README/1726421512496.png)
+![1726421512496](https://ghproxy.cc/https://raw.githubusercontent.com/Box3TRC/dao3-aui/master/README/1726421512496.png)
 
 快速上手就到这里。
 
