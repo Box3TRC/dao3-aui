@@ -6,7 +6,8 @@ function App() {
   return (<>
     <ui-text
       x="0px" y="0px" height="50px" width="200px" text-content={"hello world to " + name}
-      background-color="#ffffff"
+      background-color="#000000"
+      text-color="#ffffff"
       background-opacity="100%"
     ></ui-text>
     <ui-input

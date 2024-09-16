@@ -1,5 +1,6 @@
 globalThis.global = globalThis;
 import { h, Fragment, render } from "preact";
+import Color from "color";
 // @ts-ignore
 import domino from "./domino/lib/index.js";
 import { Event } from "./domino/lib/events.js";
@@ -39,7 +40,6 @@ export class AUIApp {
     uiGenedProps: Record<string, any> = {};
     inputNodes=[];
     renderedNodes=[];
-    // static canRenderNodes = ["ui-text", "ui-box","div"];
 
     constructor() {
         let root = document.createElement("div");
@@ -105,10 +105,6 @@ export class AUIApp {
         }, 2);
     }
     render() {
-        // console.log("rerendered");
-        // this.uiNode.children.forEach((x) => {
-        //     x.parent = undefined
-        // });
         try{
             this.renderNodes(this.root, this.uiNode);
         }catch(e){
@@ -127,8 +123,7 @@ export class AUIApp {
                     }
                 }
                 // check if val object has x,y prop(Vec3/vec2)
-                if (val.x && val.y) {
-                    // console.log("vec2/vec3",val.x,val.y,val?.z)
+                if ((val.x!==undefined && val.y!==undefined)||val.r!==undefined) {
                     uiNode[uiprop].copy(val);
                 } else {
                     Object.assign(uiNode, { [uiprop]: val })
@@ -150,16 +145,13 @@ export class AUIApp {
             } else if (type == "color") {
                 // turn all colors style into (r,g,b)
                 special_converters[prop] = (val: string) => {
-                    if (val.startsWith("rgb(")) {
-                        let [r, g, b] = val.slice(4, -1).split(",").map(x => parseFloat(x));
-                        return Vec3.create({ r, g, b });
-                    } else if (val.startsWith("#")) {
-                        let hex = val.slice(1);
-                        let r = parseInt(hex.slice(0, 2), 16);
-                        let g = parseInt(hex.slice(2, 4), 16);
-                        let b = parseInt(hex.slice(4, 6), 16);
-                        return Vec3.create({ r, g, b });
-                    }
+                    let color=new Color(val).rgb();
+                    // console.log(color.red(),color.green(),color.blue());
+                    return Vec3.create({
+                        r: color.red(),
+                        g: color.green(),
+                        b: color.blue()
+                    })
                 }
             } else if (type.startsWith("enum:")) {
                 let enum_vals = type.slice(5).split(",");

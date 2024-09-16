@@ -16,7 +16,7 @@ npm install --save dao3-aui
 
 ### 2. 修改文件名、文件入口点
 
-- 将`client/src/clientApp.tsx`改为`client/src/clientApp.tsx`
+- 将`client/src/clientApp.ts`改为`client/src/clientApp.tsx`
 - 将`dao3.config.json`中的`client->entry`改为`src/clientApp.tsx`（类似下面这样）
 
 ```json
@@ -68,7 +68,7 @@ aui.mount(<App />, ui);
 `Alt+Q`使用ArenaPro构建上传代码到岛三。
 
 ### 5. 运行
-如果你的**岛三编辑器(Arena)**中`clientIndex.js`还没有配置好运行apbundle的代码，请在`clientIndex.js`中贴入以下代码：
+如果你的 **岛三编辑器(Arena)** 中`clientIndex.js`还没有配置好运行apbundle的代码，请在`clientIndex.js`中贴入以下代码：
 ```javascript
 import "./_client_bundle.js"
 ```
@@ -90,16 +90,16 @@ import "./_client_bundle.js"
 - `<ui-input></ui-input>` UiInput `是的，真的支持`
 
 ### Ui组件属性
-- 标签的属性是把**驼峰式的属性名**改为**横线分隔的属性名**，例如：`backgroundColor` -> `background-color`等等。
+- 标签的属性是把 **驼峰式的属性名** 改为 **横线分隔的属性名** ，例如：`backgroundColor` -> `background-color`等等。
 ```tsx
 // textContent要改为text-content
 <ui-text text-content="hello world"></ui-text>
 ```
 - 特殊的属性转换
-    - `color`类别的属性，接受形如`#ffffff`(16进制六位字符)或者`rgb(255,255,255)`(rgb)的参数
-    - `opacity`类别的接受形如`100%`的参数
-    - `anchor`接受形如`100%,100%`的参数，表示锚点位置
-    - `x,y,width,height`接受形如`100px`,`10px+20%`,`100%`等的参数
+    - `color`类别的属性，接受**css颜色**，例如`#ffffff`(16进制)或者`rgb(255,255,255)`(rgb)的参数
+    - `opacity`类别的接受**百分比**，形如`100%`的参数
+    - `anchor`接受**两个百分比**，形如`100%,100%`的参数，表示锚点位置
+    - `x,y,width,height`接受**offset(px)+scale(%)**，形如`100px`,`10px+20%`,`100%`等的参数
     - ...(以后继续完善这里)
 - 事件绑定
     目前实现的事件有：
