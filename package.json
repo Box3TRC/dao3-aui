@@ -1,6 +1,6 @@
 {
   "name": "dao3-aui",
-  "version": "0.0.7-alpha",
+  "version": "0.0.8-alpha",
   "description": "React-like UI programming in Dao3.fun(Arena)",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -17,7 +17,8 @@
   "scripts": {
     "build-cjs": "esbuild src/index.ts --bundle --minify --outfile=dist/index.js --external:preact --platform=browser --format=cjs --legal-comments=none",
     "build-esm": "esbuild src/index.ts --bundle --minify --outfile=dist/index.esm.js --external:preact --platform=browser --format=esm --legal-comments=none",
-    "build": "npm run build-cjs && npm run build-esm"
+    "build": "npm run build-cjs && npm run build-esm",
+    "prepublishOnly": "npm run build"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
